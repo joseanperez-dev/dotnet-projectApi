@@ -1,0 +1,37 @@
+{
+  "ContentRoots": ["/home/jose/taller/net/projectApi/wwwroot/"],
+  "Root": {
+    "Children": {
+      "uploads": {
+        "Children": {
+          "examples": {
+            "Children": {
+              "6a49d9fc-33d3-4604-9096-a9028cd9bad6.jpg": {
+                "Children": null,
+                "Asset": {
+                  "ContentRootIndex": 0,
+                  "SubPath": "uploads/examples/6a49d9fc-33d3-4604-9096-a9028cd9bad6.jpg"
+                },
+                "Patterns": null
+              },
+              "76ccac6d-89a5-42c3-ab99-068a08a37653.jpg": {
+                "Children": null,
+                "Asset": {
+                  "ContentRootIndex": 0,
+                  "SubPath": "uploads/examples/76ccac6d-89a5-42c3-ab99-068a08a37653.jpg"
+                },
+                "Patterns": null
+              }
+            },
+            "Asset": null,
+            "Patterns": null
+          }
+        },
+        "Asset": null,
+        "Patterns": null
+      }
+    },
+    "Asset": null,
+    "Patterns": [{ "ContentRootIndex": 0, "Pattern": "**", "Depth": 0 }]
+  }
+}

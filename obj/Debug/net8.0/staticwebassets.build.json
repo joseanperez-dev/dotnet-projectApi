@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "vP0i780dsNwX0EmzMg+6jPy9q4zuwlyH6hEyRdpc2io=",
+  "Source": "projectApi",
+  "BasePath": "_content/projectApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "projectApi/wwwroot",
+      "Source": "projectApi",
+      "ContentRoot": "/home/jose/taller/net/github/ENPROCESO-projectApi/wwwroot/",
+      "BasePath": "_content/projectApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

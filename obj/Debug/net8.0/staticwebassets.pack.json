@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/home/jose/taller/net/projectApi/wwwroot/uploads/examples/6a49d9fc-33d3-4604-9096-a9028cd9bad6.jpg",
+      "PackagePath": "staticwebassets/uploads/examples/6a49d9fc-33d3-4604-9096-a9028cd9bad6.jpg"
+    },
+    {
+      "Id": "/home/jose/taller/net/projectApi/wwwroot/uploads/examples/76ccac6d-89a5-42c3-ab99-068a08a37653.jpg",
+      "PackagePath": "staticwebassets/uploads/examples/76ccac6d-89a5-42c3-ab99-068a08a37653.jpg"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.projectApi.props",
+      "PackagePath": "build\\projectApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.projectApi.props",
+      "PackagePath": "buildMultiTargeting\\projectApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.projectApi.props",
+      "PackagePath": "buildTransitive\\projectApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.projectApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
