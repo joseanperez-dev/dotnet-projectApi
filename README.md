@@ -14,15 +14,15 @@ También, crea la base de datos **bookstore_db**. Para ello tienes todas las con
 Como puedes ver, la estructura de la base de datos es la siguiente:
 
 - Books
-  - Id
+  - Id **PK**
   - Title
   - Price
-  - AuthorId
-  - CategoryId
+  - AuthorId **FK** -> Authors
+  - CategoryId **FK** -> Categories
 - Authors
   - Id
   - Name
-- Category
+- Categories
   - Id
   - Name
 
