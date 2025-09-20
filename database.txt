@@ -1,0 +1,41 @@
+use bookstore_db;
+
+CREATE TABLE Categories (
+    Id int IDENTITY(1,1) NOT NULL,
+    Name nvarchar(MAX) COLLATE Modern_Spanish_CI_AS NOT NULL,
+    CONSTRAINT PK_Categories PRIMARY KEY (Id)
+);
+
+CREATE TABLE Authors (
+    Id int IDENTITY(1,1) NOT NULL,
+    Name nvarchar(MAX) COLLATE Modern_Spanish_CI_AS NOT NULL,
+    CONSTRAINT PK_Authors PRIMARY KEY (Id)
+);
+
+CREATE TABLE Books (
+    Id int IDENTITY(1,1) NOT NULL,
+    Title nvarchar(MAX) COLLATE Modern_Spanish_CI_AS NOT NULL,
+    Price float,
+    AuthorId int NOT NULL,
+    CategoryId int NOT NULL,
+    CONSTRAINT PK_Books PRIMARY KEY (Id),
+    CONSTRAINT FK_AuthorId FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
+    CONSTRAINT FK_CategoryId FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+);
+
+select * from categories;
+select * from authors;
+select * from books;
+
+INSERT INTO Authors values('J. R. R. Tolkien');
+INSERT INTO Authors values('Miguel de Cervantes'), ('Gustavo Adolfo Bécquer');
+INSERT INTO Authors values('William Shakespeare'), ('Edgar Allan Poe'), ('Franz Kafka'), ('H. P. Lovecraft');
+INSERT INTO Authors values('Arthur C. Clarke');
+INSERT INTO Authors values('Isaac Asimov');
+INSERT INTO Authors values('Hermann Hesse');
+
+INSERT INTO Categories values('Ciencia ficción'), ('Fantasía'), ('Filosofía'), ('Terror'), ('Suspense'), ('Comedia'), ('Sátira');
+INSERT INTO Categories values('Psicología');
+
+INSERT INTO Books values('El Ingenioso hidalgo Don Quijote de la Mancha', 29.99, 2, 7);
+INSERT INTO Books values('El Señor de los Anillos', 19.99, 1, 2);
