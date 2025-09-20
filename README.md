@@ -20,10 +20,10 @@ Como puedes ver, la estructura de la base de datos es la siguiente:
   - AuthorId **FK** -> Authors
   - CategoryId **FK** -> Categories
 - Authors
-  - Id
+  - Id **PK** <- Books
   - Name
 - Categories
-  - Id
+  - Id **PK** <- Books
   - Name
 
 # EN CONSTRUCCIÓN
