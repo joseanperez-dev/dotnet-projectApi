@@ -175,3 +175,4 @@
 /home/jose/taller/net/github/ENPROCESO-projectApi/obj/Debug/net8.0/projectApi.pdb
 /home/jose/taller/net/github/ENPROCESO-projectApi/obj/Debug/net8.0/projectApi.genruntimeconfig.cache
 /home/jose/taller/net/github/ENPROCESO-projectApi/obj/Debug/net8.0/ref/projectApi.dll
+/home/jose/taller/net/github/ENPROCESO-projectApi/obj/Debug/net8.0/projectApi.sourcelink.json
