@@ -6,7 +6,7 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuramos la conexión a SQLServer local
+// SQLServer local connection
 var connectionString = builder.Configuration.GetConnectionString("ConnectionSQL") ??
 throw new InvalidOperationException("Error de conexión con la base de datos");
 builder.Services.AddDbContext<Context>(options=>options.UseSqlServer(connectionString));
