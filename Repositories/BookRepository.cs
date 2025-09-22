@@ -8,33 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace projectApi.Repositories;
 
+
 /*
-*   Repositorio para la gestión de Book.
-*   Proporciona las operaciones CRUD básicas utilizando Entity Framework Core.
+*   Repository for managing Book.
+*   Provides basic CRUD operations using Entity Framework Core.
 */
 public class BookRepository : IBookRepository<Book>
 {
     /*
-    *   Context del repositorio
+    *   Repository context.
     */
     private readonly Context context;
 
+
     /*
-    *   Inicializa una nueva instancia de BookRepository.
+    *   Initializes a new instance of BookRepository.
     *   
-    *   @param context Contexto de base de datos utilizado para las operaciones.
+    *   @param context Database context used for operations.
     */
     public BookRepository(Context context)
     {
         this.context = context;
     }
 
+
     /*
-    *   Agrega una nueva instancia de Book a la base de datos.
+    *   Adds a new Book instance to the database.
     *
-    *   @param entity Instancia de Book
+    *   @param entity Book instance
     */
     public void Add(Book entity)
     {
@@ -42,10 +46,11 @@ public class BookRepository : IBookRepository<Book>
         context.SaveChanges();
     }
 
+
     /*
-    *   Elimina un instancia concreta de Book de la base de datos.
+    *   Deletes a specific Book instance from the database.
     *
-    *   @param id Identificador del libro
+    *   @param id Book identifier
     */
     public void Delete(int id)
     {
@@ -57,10 +62,11 @@ public class BookRepository : IBookRepository<Book>
         }
     }
 
+
     /*
-    *   Obtiene la lista completa de libroes almacenados en la base de datos.
+    *   Retrieves the complete list of books stored in the database.
     *
-    *   @returns Enumeración de Book
+    *   @returns Enumeration of Book
     */
     public IEnumerable<Book> GetAll()
     {
@@ -69,11 +75,12 @@ public class BookRepository : IBookRepository<Book>
                                                              .ToList();
     }
 
+
     /*
-    *   Obtiene una instancia concreta de Book almacenada en la base de datos por su identificador.
+    *   Retrieves a specific Book instance stored in the database by its identifier.
     *
-    *   @param id Identificador del libro
-    *   @returns Instancia de Book
+    *   @param id Book identifier
+    *   @returns Book instance
     */
     public Book GetById(int id)
     {
@@ -81,13 +88,11 @@ public class BookRepository : IBookRepository<Book>
                                   .Include(b => b.Category).FirstOrDefault(b => b.Id == id);
     }
 
+
     /*
-    *   Obtiene una instancia concreta de Book almacenada en la base de datos por su identificador 
-    *   para modificarla.
+    *   Updates a specific Book instance in the database.
     *
-    *   @param id Identificador del libro
-    *   @param intity instancia de Book
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param entity Book instance
     */
     public void Update(Book entity)
     {

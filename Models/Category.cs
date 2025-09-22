@@ -2,20 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace projectApi.Models;
 
+
 /*
-*   Este modelo representa a la entidad Categories en la base de datos.
+*   This model represents the Categories entity in the database.
 */
 public class Category
 {
     /*
-    *   Indentificador único.
+    *   Unique identifier.
     */
     [Key]
     public int Id { get; set; }
     /*
-    *   Nombre de la categoría.
+    *   Category name.
     */
     public string Name { get; set; }
 }

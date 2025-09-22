@@ -1,18 +1,20 @@
 using System;
 
+
 namespace projectApi.Dto;
 
+
 /*
-*   Objeto de transferencia de datos que representa una respuesta genérica para las peticiones.
+*   Data Transfer Object that represents a generic response for requests.
 */
 public class GenericResponseDTO
 {
     /*
-    *   Estado de la petición.
+    *   Request status.
     */
     public string Status { get; set; }
     /*
-    *   Nombre de la petición.
+    *   Request name.
     */
     public string Name { get; set; }
 }

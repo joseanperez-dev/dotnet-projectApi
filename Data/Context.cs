@@ -1,36 +1,40 @@
 using projectApi.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace projectApi.Data;
 
+
 /*
-*   Representa el contexto de base de datos para la aplicación.
-*   Esta clase actúa como puente entre las entidades de dominio y la base de datos, 
-*   gestionando la conexión y el mapeo de modelos mediante Entity Framework Core.
+*   Represents the database context for the application.
+*   This class acts as a bridge between domain entities and the database,
+*   managing the connection and the model mapping through Entity Framework Core.
 */
 public class Context : DbContext
 {
     /*
-    *   Constructor que inicializa una nueva instancia de Context. Recibe una instancia de 
-    *   DbContextOptions y configura la conexión a la base de datos.
+    *   Constructor that initializes a new instance of Context. Receives an instance of
+    *   DbContextOptions and configures the connection to the database.
     *   
-    *   @param options Opciones utilizadas para configurar DbContext
+    *   @param options Options used to configure DbContext
     */
     public Context(DbContextOptions<Context> options) : base(options)
     {
 
+
     }
 
+
     /*
-    *   Representa la tabla Books en la base de datos.
+    *   Represents the Books table in the database.
     */
     public DbSet<Book> Books { get; set; }
     /*
-    *   Representa la tabla Authors en la base de datos.
+    *   Represents the Authors table in the database.
     */
     public DbSet<Author> Authors { get; set; }
     /*
-    *   Representa la tabla Categories en la base de datos.
+    *   Represents the Categories table in the database.
     */
     public DbSet<Category> Categories { get; set; }
 }

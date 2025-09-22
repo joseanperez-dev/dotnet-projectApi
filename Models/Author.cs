@@ -2,20 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace projectApi.Models;
 
+
 /*
-*   Este modelo representa a la entidad Authors en la base de datos.
+*   This model represents the Authors entity in the database.
 */
 public class Author
 {
     /*
-    *   Indentificador único.
+    *   Unique identifier.
     */
     [Key]
     public int Id { get; set; }
     /*
-    *   Nombre del autor.
+    *   Author's name.
     */
     public string Name { get; set; }
 }

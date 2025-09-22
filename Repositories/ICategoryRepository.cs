@@ -6,50 +6,56 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace projectApi.Repositories;
 
 
+
 /*
-*   Interfaz genérica para la gestión de Category.
-*   Define las operaciones CRUD básicas que deben implementarse en el repositorio correspondiente.
+*   Generic interface for managing Category.
+*   Defines the basic CRUD operations that must be implemented in the corresponding repository.
 *
-*   @typeparam T Tipo de entidad (en este caso, Category).
+*   @typeparam T Entity type (in this case, Category).
 */
 public interface ICategoryRepository<T>
 {
     /*
-    *   Obtiene una instancia concreta de Category por su identificador.
+    *   Retrieves a specific Category instance by its identifier.
     *
-    *   @param id Identificador de la categoría.
-    *   @returns Instancia de Category.
+    *   @param id Category identifier.
+    *   @returns Category instance.
     */
     T GetById(int id);
 
+
     /*
-    *   Obtiene la lista completa de categorías almacenadas en la base de datos.
+    *   Retrieves the complete list of Categories stored in the database.
     *
-    *   @returns Enumeración de Category.
+    *   @returns Enumeration of Category.
     */
     IEnumerable<T> GetAll();
 
+
     /*
-    *   Agrega una nueva instancia de Category a la base de datos.
+    *   Adds a new Category instance to the database.
     *
-    *   @param entity Instancia de Category.
+    *   @param entity Category instance.
     */
     void Add(T entity);
 
+
     /*
-    *   Actualiza la información de una instancia existente de Category en la base de datos.
+    *   Updates an existing Category instance in the database.
     *
-    *   @param entity Instancia de Category con los datos actualizados.
+    *   @param entity Category instance with updated data.
     */
     void Update(T entity);
 
+
     /*
-    *   Elimina una instancia concreta de Category de la base de datos.
+    *   Deletes a specific Category instance from the database.
     *
-    *   @param id Identificador de la categoría.
+    *   @param id Category identifier.
     */
     void Delete(int id);
 }

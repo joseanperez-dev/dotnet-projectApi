@@ -6,54 +6,60 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace projectApi.Repositories;
 
 
+
 /*
-*   Interfaz genérica para la gestión de Author.
-*   Define las operaciones CRUD básicas que deben implementarse en el repositorio correspondiente.
+*   Generic interface for managing Author.
+*   Defines the basic CRUD operations that must be implemented in the corresponding repository.
 *
-*   @typeparam T Tipo de entidad (en este caso, Author).
+*   @typeparam T Entity type (in this case, Author).
 */
 public interface IAuthorRepository<T>
 {
     /*
-    *   Obtiene una instancia concreta de Author por su identificador.
+    *   Retrieves a specific Author instance by its identifier.
     *
-    *   @param id Identificador del autor.
-    *   @returns Instancia de Author.
+    *   @param id Author identifier.
+    *   @returns Author instance.
     */
     T GetById(int id);
 
 
+
     /*
-    *   Obtiene la lista completa de autores almacenados en la base de datos.
+    *   Retrieves the complete list of Authors stored in the database.
     *
-    *   @returns Enumeración de Author.
+    *   @returns Enumeration of Author.
     */
     IEnumerable<T> GetAll();
 
 
+
     /*
-    *   Agrega una nueva instancia de Author a la base de datos.
+    *   Adds a new Author instance to the database.
     *
-    *   @param entity Instancia de Author.
+    *   @param entity Author instance.
     */
     void Add(T entity);
 
 
+
     /*
-    *   Actualiza la información de una instancia existente de Author en la base de datos.
+    *   Updates an existing Author instance in the database.
     *
-    *   @param entity Instancia de Author con los datos actualizados.
+    *   @param entity Author instance with updated data.
     */
     void Update(T entity);
 
 
+
     /*
-    *   Elimina una instancia concreta de Author de la base de datos.
+    *   Deletes a specific Author instance from the database.
     *
-    *   @param id Identificador del autor.
+    *   @param id Author identifier.
     */
     void Delete(int id);
 }

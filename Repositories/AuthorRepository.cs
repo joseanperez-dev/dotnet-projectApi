@@ -8,33 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace projectApi.Repositories;
 
+
 /*
-*   Repositorio para la gestión de Author.
-*   Proporciona las operaciones CRUD básicas utilizando Entity Framework Core.
+*   Repository for managing Author.
+*   Provides basic CRUD operations using Entity Framework Core.
 */
 public class AuthorRepository : IAuthorRepository<Author>
 {
     /*
-    *   Context del repositorio
+    *   Repository context.
     */
     private readonly Context context;
 
+
     /*
-    *   Inicializa una nueva instancia de AuthorRepository.
+    *   Initializes a new instance of AuthorRepository.
     *   
-    *   @param context Contexto de base de datos utilizado para las operaciones.
+    *   @param context Database context used for operations.
     */
     public AuthorRepository(Context context)
     {
         this.context = context;
     }
 
+
     /*
-    *   Agrega una nueva instancia de Author a la base de datos.
+    *   Adds a new Author instance to the database.
     *
-    *   @param entity Instancia de Author
+    *   @param entity Author instance
     */
     public void Add(Author entity)
     {
@@ -42,10 +46,11 @@ public class AuthorRepository : IAuthorRepository<Author>
         context.SaveChanges();
     }
 
+
     /*
-    *   Elimina un instancia concreta de Author de la base de datos.
+    *   Deletes a specific Author instance from the database.
     *
-    *   @param id Identificador del autor
+    *   @param id Author identifier
     */
     public void Delete(int id)
     {
@@ -57,34 +62,34 @@ public class AuthorRepository : IAuthorRepository<Author>
         }
     }
 
+
     /*
-    *   Obtiene la lista completa de autores almacenados en la base de datos.
+    *   Retrieves the complete list of authors stored in the database.
     *
-    *   @returns Enumeración de Author
+    *   @returns Enumeration of Author
     */
     public IEnumerable<Author> GetAll()
     {
         return context.Set<Author>().OrderByDescending(c => c.Id).ToArray();
     }
 
+
     /*
-    *   Obtiene una instancia concreta de Author almacenada en la base de datos por su identificador.
+    *   Retrieves a specific Author instance stored in the database by its identifier.
     *
-    *   @param id Identificador del autor
-    *   @returns Instancia de Author
+    *   @param id Author identifier
+    *   @returns Author instance
     */
     public Author GetById(int id)
     {
         return context.Set<Author>().Find(id);
     }
 
+
     /*
-    *   Obtiene una instancia concreta de Author almacenada en la base de datos por su identificador 
-    *   para modificarla.
+    *   Updates a specific Author instance in the database.
     *
-    *   @param id Identificador del autor
-    *   @param intity instancia de Author
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param entity Author instance
     */
     public void Update(Author entity)
     {

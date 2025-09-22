@@ -5,34 +5,38 @@ using projectApi.Dto;
 using projectApi.Models;
 using projectApi.Repositories;
 
+
 namespace projectApi.Controllers;
 
+
 /*
-*   Este controlador maneja las operaciones relacionadas con la entidad Category.
-*   Interactúa con el contexto de la base de datos.
+*   This controller handles operations related to the Category entity.
+*   It interacts with the database context.
 */
 [ApiController]
 [Route("[controller]")]
 public class CategoryController : Controller
 {
     /*
-    *   Repositorio para la entidad Book.
+    *   Repository for the Book entity.
     */
     public BookRepository bookRepo;
     /*
-    *   Repositorio para la entidad Category.
+    *   Repository for the Category entity.
     */
     public CategoryRepository cateRepo;
     /*
-    *   Repositorio para la entidad Author.
+    *   Repository for the Author entity.
     */
     public AuthorRepository authRepo;
 
+
     /*
-    *   Constructor que inicializa una nueva instancia de CategoryController. Recibe una instancia de 
-    *   Context e inicializa una instancia de los repositorios de Book, Category y Author.
+    *   Constructor that initializes a new instance of CategoryController. 
+    *   It receives a Context instance and initializes the repositories 
+    *   for Book, Category, and Author.
     *
-    *   @param context Instancia de Context utilizada para acceder a la base de datos
+    *   @param context Context instance used to access the database
     */
     public CategoryController(Context context)
     {
@@ -41,10 +45,11 @@ public class CategoryController : Controller
         this.authRepo = new AuthorRepository(context);
     }
 
+
     /*
-    *   Método que obtiene la lista completa de categorías almacenadas en la base de datos.
+    *   Method that retrieves the complete list of categories stored in the database.
     *
-    *   @returns Enumeración de Category
+    *   @returns Enumeration of Category
     */
     [HttpGet]
     [Route("/categories")]
@@ -53,11 +58,12 @@ public class CategoryController : Controller
         return cateRepo.GetAll();
     }
 
+
     /*
-    *   Método que obtiene una instancia concreta de Category almacenada en la base de datos por su identificador.
+    *   Method that retrieves a specific Category instance stored in the database by its identifier.
     *
-    *   @param id Identificador de la categoría
-    *   @returns Instancia de Category
+    *   @param id Category identifier
+    *   @returns Category instance
     */
     [HttpGet]
     [Route("/categories/{id}")]
@@ -66,11 +72,12 @@ public class CategoryController : Controller
         return cateRepo.GetById(id);
     }
 
+
     /*
-    *   Método que crea una instancia de Category y la almacena en la base de datos.
+    *   Method that creates a Category instance and stores it in the database.
     *
-    *   @param categoryDto Objeto de transferencia de datos para crear la instancia de Category
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param categoryDto Data transfer object used to create the Category instance
+    *   @returns Generic response with the request status
     */
     [HttpPost]
     [Route("/categories")]
@@ -79,40 +86,42 @@ public class CategoryController : Controller
         Category author = new Category();
         author.Name = authorDto.Name;
         cateRepo.Add(author);
-        return new GenericResponseDTO{Status="201 | CREATED", Name=$"Se ha creado correctamente: {authorDto.Name}"};
+        return new GenericResponseDTO{Status="201 | CREATED", Name=$"Successfully created: {authorDto.Name}"};
     }
 
+
     /*
-    *   Método que obtiene una instancia concreta de Category almacenada en la base de datos por su identificador 
-    *   para modificarla.
+    *   Method that retrieves a specific Category instance stored in the database by its identifier 
+    *   in order to update it.
     *
-    *   @param id Identificador de la categoría
-    *   @param categoryDto Objeto de transferencia de datos para modificar la instancia de Category
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param id Category identifier
+    *   @param categoryDto Data transfer object used to update the Category instance
+    *   @returns Generic response with the request status
     */
     [HttpPut]
     [Route("/categories/{id}")]
     public GenericResponseDTO editCategory(int id, CategoryDTO authorDto)
     {
         Category author = cateRepo.GetById(id);
-        string nombreDesactualizado = author.Name;
+        string oldName = author.Name;
         author.Name = authorDto.Name;
         cateRepo.Update(author);
-        return new GenericResponseDTO{Status="200 | OK", Name=$"Se ha Actualizado correctamente: {nombreDesactualizado} -> {authorDto.Name}"};
+        return new GenericResponseDTO{Status="200 | OK", Name=$"Successfully updated: {oldName} -> {authorDto.Name}"};
     }
 
+
     /*
-    *   Método que obtiene una instancia concreta de Category almacenada en la base de datos por su identificador 
-    *   para eliminarla.
+    *   Method that retrieves a specific Category instance stored in the database by its identifier 
+    *   in order to delete it.
     *
-    *   @param id Identificador del categoría
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param id Category identifier
+    *   @returns Generic response with the request status
     */
     [HttpDelete]
     [Route("/categories/delete/{id}")]
     public GenericResponseDTO deleteCategory(int id)
     {    
         cateRepo.Delete(id);
-        return new GenericResponseDTO { Status = "200 | OK", Name = $"Se ha Borrado correctamente" };
+        return new GenericResponseDTO { Status = "200 | OK", Name = $"Successfully deleted" };
     }
 }

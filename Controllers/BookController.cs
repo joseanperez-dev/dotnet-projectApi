@@ -5,34 +5,38 @@ using projectApi.Dto;
 using projectApi.Models;
 using projectApi.Repositories;
 
+
 namespace projectApi.Controllers;
 
+
 /*
-*   Este controlador maneja las operaciones relacionadas con la entidad Book.
-*   Interactúa con el contexto de la base de datos.
+*   This controller handles operations related to the Book entity.
+*   It interacts with the database context.
 */
 [ApiController]
 [Route("[controller]")]
 public class BookController : Controller
 {
     /*
-    *   Repositorio para la entidad Book.
+    *   Repository for the Book entity.
     */
     public BookRepository bookRepo;
     /*
-    *   Repositorio para la entidad Category.
+    *   Repository for the Category entity.
     */
     public CategoryRepository cateRepo;
     /*
-    *   Repositorio para la entidad Author.
+    *   Repository for the Author entity.
     */
     public AuthorRepository authRepo;
 
-/*
-    *   Constructor que inicializa una nueva instancia de BookController. Recibe una instancia de 
-    *   Context e inicializa una instancia de los repositorios de Book, Category y Author.
+
+    /*
+    *   Constructor that initializes a new instance of BookController. 
+    *   It receives a Context instance and initializes the repositories 
+    *   for Book, Category, and Author.
     *
-    *   @param context Instancia de Context utilizada para acceder a la base de datos
+    *   @param context Context instance used to access the database
     */
     public BookController(Context context)
     {
@@ -41,10 +45,11 @@ public class BookController : Controller
         this.authRepo = new AuthorRepository(context);
     }
 
+
     /*
-    *   Método que obtiene la lista completa de libros almacenados en la base de datos.
+    *   Method that retrieves the complete list of books stored in the database.
     *
-    *   @returns Enumeración de Book
+    *   @returns Enumeration of Book
     */
     [HttpGet]
     [Route("/books")]
@@ -53,11 +58,12 @@ public class BookController : Controller
         return bookRepo.GetAll();
     }
 
+
     /*
-    *   Método que obtiene una instancia concreta de Book almacenada en la base de datos por su identificador.
+    *   Method that retrieves a specific Book instance stored in the database by its identifier.
     *
-    *   @param id Identificador del libro
-    *   @returns Instancia de Book
+    *   @param id Book identifier
+    *   @returns Book instance
     */
     [HttpGet]
     [Route("/books/{id}")]
@@ -67,10 +73,10 @@ public class BookController : Controller
     }
     
     /*
-    *   Método que crea una instancia de Book y la almacena en la base de datos.
+    *   Method that creates a Book instance and stores it in the database.
     *
-    *   @param bookDto Objeto de transferencia de datos para crear la instancia de Book
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param bookDto Data transfer object used to create the Book instance
+    *   @returns Generic response with the request status
     */
     [HttpPost]
     [Route("/books")]
@@ -82,43 +88,45 @@ public class BookController : Controller
         book.AuthorId = bookDto.AuthorId;
         book.CategoryId = bookDto.CategoryId;
         bookRepo.Add(book);
-        return new GenericResponseDTO{Status="201 | CREATED", Name=$"Se ha creado correctamente: {bookDto.Title}"};
+        return new GenericResponseDTO{Status="201 | CREATED", Name=$"Successfully created: {bookDto.Title}"};
     }
 
+
     /*
-    *   Método que obtiene una instancia concreta de Book almacenada en la base de datos por su identificador 
-    *   para modificarla.
+    *   Method that retrieves a specific Book instance stored in the database by its identifier 
+    *   in order to update it.
     *
-    *   @param id Identificador del libro
-    *   @param bookDto Objeto de transferencia de datos para modificar la instancia de Book
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param id Book identifier
+    *   @param bookDto Data transfer object used to update the Book instance
+    *   @returns Generic response with the request status
     */
     [HttpPut]
     [Route("/books/{id}")]
     public GenericResponseDTO editBook(int id, BookDTO bookDto)
     {
         Book book = bookRepo.GetById(id);
-        string nombreDesactualizado = book.Title;
+        string oldTitle = book.Title;
         book.Title = bookDto.Title;
         book.Price = bookDto.Price;
         book.AuthorId = bookDto.AuthorId;
         book.CategoryId = bookDto.CategoryId;
         bookRepo.Update(book);
-        return new GenericResponseDTO{Status="200 | OK", Name=$"Se ha Actualizado correctamente: {nombreDesactualizado} -> {bookDto.Title}"};
+        return new GenericResponseDTO{Status="200 | OK", Name=$"Successfully updated: {oldTitle} -> {bookDto.Title}"};
     }
 
+
     /*
-    *   Método que obtiene una instancia concreta de Book almacenada en la base de datos por su identificador 
-    *   para eliminarla.
+    *   Method that retrieves a specific Book instance stored in the database by its identifier 
+    *   in order to delete it.
     *
-    *   @param id Identificador del libro
-    *   @returns Respuesta genérica con el estado de la petición
+    *   @param id Book identifier
+    *   @returns Generic response with the request status
     */
     [HttpDelete]
     [Route("/books/delete/{id}")]
     public GenericResponseDTO deleteBook(int id)
     {    
         bookRepo.Delete(id);
-        return new GenericResponseDTO { Status = "200 | OK", Name = $"Se ha Borrado correctamente" };
+        return new GenericResponseDTO { Status = "200 | OK", Name = $"Successfully deleted" };
     }
 }

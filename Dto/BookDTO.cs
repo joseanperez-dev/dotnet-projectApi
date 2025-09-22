@@ -2,27 +2,29 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace projectApi.Dto;
 
+
 /*
-*   Objeto de transferencia de datos que representa de forma simplicada la entidad Book.
+*   Data Transfer Object that represents a simplified version of the Book entity.
 */
 public class BookDTO
 {
     /*
-    *   Título del libro.
+    *   Book title.
     */
     public string Title { get; set; }
     /*
-    *   Precio del libro.
+    *   Book price.
     */
     public double Price { get; set; }
     /*
-    *   Identificador del autor del libro.
+    *   Book's author identifier.
     */
     public int AuthorId { get; set; }
     /*
-    *   Identificador de la categoría del libro.
+    *   Book's category identifier.
     */
     public int CategoryId { get; set; }
 }

@@ -2,42 +2,42 @@ using System;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace projectApi.Models;
 
+
 /*
-*   Este modelo representa a la entidad Books en la base de datos.
+*   This model represents the Books entity in the database.
 */
 public class Book
 {
     /*
-    *   Indentificador único.
+    *   Unique identifier.
     */
     [Key]
     public int Id { get; set; }
     /*
-    *   Título del libro.
+    *   Book title.
     */
     public string? Title { get; set; }
     /*
-    *   Precio del libro.
+    *   Book price.
     */
     public double? Price { get; set; }
     /*
-    *   Identificador del autor del libro.
+    *   Book's author identifier.
     */
     public int AuthorId { get; set; }
     /*
-    *   Autor del libro.
+    *   Book's author.
     */
     public Author Author { get; set; }
     /*
-    *   Identificador de la categoría del libro.
+    *   Book's category identifier.
     */
     public int CategoryId { get; set; }
     /*
-    *   Categoría del libro.
+    *   Book's category.
     */
     public Category Category { get; set; }
-
-    
 }

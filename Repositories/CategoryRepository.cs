@@ -9,25 +9,28 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 
+
 namespace projectApi.Repositories;
 
 
+
 /*
-*   Repositorio para la gestión de Category.
-*   Proporciona las operaciones CRUD básicas utilizando Entity Framework Core.
+*   Repository for managing Category.
+*   Provides basic CRUD operations using Entity Framework Core.
 */
 public class CategoryRepository : ICategoryRepository<Category>
 {
     /*
-    *   Context del repositorio
+    *   Repository context.
     */
     private readonly Context context;
 
 
+
     /*
-    *   Inicializa una nueva instancia de CategoryRepository.
+    *   Initializes a new instance of CategoryRepository.
     *   
-    *   @param context Contexto de base de datos utilizado para las operaciones.
+    *   @param context Database context used for operations.
     */
     public CategoryRepository(Context context)
     {
@@ -35,10 +38,11 @@ public class CategoryRepository : ICategoryRepository<Category>
     }
 
 
+
     /*
-    *   Agrega una nueva instancia de Category a la base de datos.
+    *   Adds a new Category instance to the database.
     *
-    *   @param entity Instancia de Category
+    *   @param entity Category instance
     */
     public void Add(Category entity)
     {
@@ -47,10 +51,11 @@ public class CategoryRepository : ICategoryRepository<Category>
     }
 
 
+
     /*
-    *   Elimina una instancia concreta de Category de la base de datos.
+    *   Deletes a specific Category instance from the database.
     *
-    *   @param id Identificador de la categoría
+    *   @param id Category identifier
     */
     public void Delete(int id)
     {
@@ -63,10 +68,11 @@ public class CategoryRepository : ICategoryRepository<Category>
     }
 
 
+
     /*
-    *   Obtiene la lista completa de categorías almacenadas en la base de datos.
+    *   Retrieves the complete list of categories stored in the database.
     *
-    *   @returns Enumeración de Category
+    *   @returns Enumeration of Category
     */
     public IEnumerable<Category> GetAll()
     {
@@ -74,11 +80,12 @@ public class CategoryRepository : ICategoryRepository<Category>
     }
 
 
+
     /*
-    *   Obtiene una instancia concreta de Category almacenada en la base de datos por su identificador.
+    *   Retrieves a specific Category instance stored in the database by its identifier.
     *
-    *   @param id Identificador de la categoría
-    *   @returns Instancia de Category
+    *   @param id Category identifier
+    *   @returns Category instance
     */
     public Category GetById(int id)
     {
@@ -86,10 +93,11 @@ public class CategoryRepository : ICategoryRepository<Category>
     }
 
 
+
     /*
-    *   Actualiza la información de una instancia existente de Category en la base de datos.
+    *   Updates an existing Category instance in the database.
     *
-    *   @param entity Instancia de Category con los datos actualizados
+    *   @param entity Category instance with updated data
     */
     public void Update(Category entity)
     {

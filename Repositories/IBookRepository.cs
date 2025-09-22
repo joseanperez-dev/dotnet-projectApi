@@ -6,50 +6,56 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace projectApi.Repositories;
 
 
+
 /*
-*   Interfaz genérica para la gestión de Book.
-*   Define las operaciones CRUD básicas que deben implementarse en el repositorio correspondiente.
+*   Generic interface for managing Book.
+*   Defines the basic CRUD operations that must be implemented in the corresponding repository.
 *
-*   @typeparam T Tipo de entidad (en este caso, Book).
+*   @typeparam T Entity type (in this case, Book).
 */
 public interface IBookRepository<T>
 {
     /*
-    *   Obtiene una instancia concreta de Book por su identificador.
+    *   Retrieves a specific Book instance by its identifier.
     *
-    *   @param id Identificador del libro.
-    *   @returns Instancia de Book.
+    *   @param id Book identifier.
+    *   @returns Book instance.
     */
     T GetById(int id);
 
+
     /*
-    *   Obtiene la lista completa de libros almacenados en la base de datos.
+    *   Retrieves the complete list of Books stored in the database.
     *
-    *   @returns Enumeración de Book.
+    *   @returns Enumeration of Book.
     */
     IEnumerable<T> GetAll();
 
+
     /*
-    *   Agrega una nueva instancia de Book a la base de datos.
+    *   Adds a new Book instance to the database.
     *
-    *   @param entity Instancia de Book.
+    *   @param entity Book instance.
     */
     void Add(T entity);
 
+
     /*
-    *   Actualiza la información de una instancia existente de Book en la base de datos.
+    *   Updates an existing Book instance in the database.
     *
-    *   @param entity Instancia de Book con los datos actualizados.
+    *   @param entity Book instance with updated data.
     */
     void Update(T entity);
 
+
     /*
-    *   Elimina una instancia concreta de Book de la base de datos.
+    *   Deletes a specific Book instance from the database.
     *
-    *   @param id Identificador del libro.
+    *   @param id Book identifier.
     */
     void Delete(int id);
 }
